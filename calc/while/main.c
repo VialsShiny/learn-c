@@ -1,19 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define MIN 0
+#define MAX 300
+#define INTER 20
+
 int main() {
   float fahr;
   float celsus;
-  int min, max, interval;
-  min = 0;
-  max = 300;
-  interval = 20;
-  fahr = min;
-
-  while (fahr <= max) {
+  fahr = MIN;
+  while (fahr <= MAX) {
     celsus = (fahr - 32) * 5/9;
     printf("Fahr : %.0f\tCelsus : %.2f\n", fahr, celsus);
-    fahr += interval;
+    fahr += INTER;
   }
   system("PAUSE");
 }
