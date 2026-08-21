@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void main() {
+int main() {
   float fahr;
   float celsus;
   int min, max, interval;
