@@ -2,17 +2,7 @@
 #include <stdlib.h>
 #include <stddef.h>
 
-void print_array(int* tab, int length) {
-  printf("{");
-  for (size_t i = 0; i < length; i++) {
-    if (i + 1 != length) {
-      printf("'%d', ", tab[i]);
-    } else {
-      printf("'%d'", tab[i]);
-    }
-  };
-  printf("}\n");
-}
+#include "printa.h"
 
 int main() {
   int tab[] = {15, 36, 59, 45}; // 155
@@ -22,7 +12,7 @@ int main() {
     total += tab[i];
   }
   
-  print_array(tab, length);
+  printa(tab, length);
   printf("Result : %d\n", total);
   system("PAUSE");
 }
