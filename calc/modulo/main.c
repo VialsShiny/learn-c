@@ -2,24 +2,22 @@
 #include <stdlib.h>
 #include <stddef.h>
 
-#define MIN 1
-#define MAX 99
-
 int main() {
-  int i = 0;
-  unsigned int number;
-  int result[1] = {};
+  int result;
+  int number;
 
-  printf("Entrez un nombre entre 1 et 99\n");
-  number = getchar();
-  while(number != EOF && number != '\n') {
-    result[i] = number;
-    i++;
+  printf("--- PAIR OU IMPAIR ---\n\n");
+  printf("Veuillez entree un nombre compris entre 1 & 99 : ");
+  result = scanf("%d", &number);  
+  if (result) {
+    if(number % 2 != 0) {
+      printf("Impair : %d\n", number);
+    } else {
+      printf("Pair : %d\n", number);
+    }
+  } else {
+    printf("Erreur : ce n'est pas un nombre !\n");
   }
 
-  for (size_t j = 0; j < sizeof(result) / sizeof(result[0]); j++) {
-    printf("%d\n", result[j]);
-  }
-  
   system("PAUSE");
 }
