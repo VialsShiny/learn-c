@@ -21,7 +21,7 @@ int main() {
         while ((c = getchar()) != '\n' && c != EOF) {
           c = getchar();
         }
-        printf("Erreur : Ce nombre n'est pas compris entre 1 & 99 !\n");
+        printf("Erreur : Ce nombre n'est pas compris entre 1 & 999 !\n");
       } else {
         if(number % 2 != 0) {
           printf("Impair : %d\n", number);
