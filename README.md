@@ -10,3 +10,5 @@ I use this project to learn and review core C concepts through practical exercis
 - C
 - VS Code
 - GCC / terminal
+
+#### @VialsShiny
