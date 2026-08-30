@@ -1,12 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int increment(int *p) {
+  (*p)++;
+}
+
 int main() {
   int number = 10;
 
-  int *n = &number;
-  *n = 20;
-  printf("%d\n", number);
-  printf("%d\n", *n);
+  printf("Default : %d\n", number);
+  increment(&number);
+  printf("After Increment : %d\n", number);
+
   system("PAUSE");
 }
