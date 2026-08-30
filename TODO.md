@@ -7,7 +7,7 @@
 - [x] Word counter
 - [x] Pair / odd program
 - [x] Array sum
-- [ ] Pointers
+- [x] Pointers
 - [ ] Functions
 - [ ] Structs
 - [ ] Dynamic memory allocation
