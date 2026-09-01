@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <stddef.h>
 
+#include "printa.h"
+
 int main() {
   int tab[] = {10, 20, 30, 40, 50};
   int sum = 0;
@@ -15,6 +17,7 @@ int main() {
     p++;
   }
 
+  printa(tab, length);
   printf("%d\n", sum);
   system("PAUSE");
 }
