@@ -28,12 +28,13 @@ int askForNumbers(int *nbr, int step) {
   } while(!flag);
 }
 
-void operation() {
+int operation() {
   int flag = 0;
   char operator;
   do {
-    printf("Operator :");
-    switch(scanf(" %c", &operator)) {
+    printf("Operator (+ - * / %) : ");
+    scanf(" %c", &operator);
+    switch(operator) {
       case '+':
         printf("\n");
         flag = 1;
@@ -55,7 +56,7 @@ void operation() {
         flag = 1;
         break;
       default:
-        printf("\nInvalid.\n");
+        printf("\nInvalid.\n", operator);
         int c;
         while ((c = getchar()) != '\n' && c != EOF) {}
         flag = 0;
@@ -69,9 +70,10 @@ int main() {
   int result;
 
   result = askForNumbers(&nbr, 1);
-  if (result == false) {
-    return 0;
-  }
+  if (result == false) { return 0; }
+
+  result = operation();
+  if (result == false) { return 0; }
 
   printf("%d !", nbr);
 }
