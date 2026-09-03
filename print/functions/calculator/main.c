@@ -5,7 +5,7 @@
 int askForNumbers(int *nbr, int step) {
   int tempNbr;
   int result;
-  int flag = 0;
+  int flag = 0; 
 
   if (step != 1 && step != 2) {
     printf("Wrong Step\n");
@@ -13,7 +13,12 @@ int askForNumbers(int *nbr, int step) {
   }
 
   do {
-    printf("First number : ");
+    if (step == 1) {
+      printf("First number : ");
+    } else {
+      printf("Second number : ");
+    }
+
     result = scanf(" %d", &tempNbr);
     if (result) {
       *nbr = tempNbr;
@@ -25,68 +30,98 @@ int askForNumbers(int *nbr, int step) {
       flag = 0;
     }
   } while(!flag);
+
+  return true;
 };
 
-int calc(int nbr1, char operator) {
-  int nbr2;
-  int finalNbr;
+int operation(int *nbr1, int *nbr2, int *finalNumber) {
+  int flag = 0;
   int result;
 
-  result = askForNumbers(&nbr2, 2);
-  if (result == false) { return false; }
-
-  printf("%d %c %d = %d", nbr1, operator, nbr2, finalNbr);
-};
-
-int operation(int nbr) {
-  int flag = 0;
   char operator;
   do {
-    printf("Operator (+ - * / %) : ");
-    scanf(" %c", &operator);
+    if (!operator) {
+      printf("Operator (+ - * / %%) : ");
+      scanf(" %c", &operator);
+    }
     switch(operator) {
       case '+':
         printf("\n");
-        calc(nbr, operator);
+        result = askForNumbers(nbr2, 2);
+        if (result == false) { return false; }
+
+        *finalNumber = *nbr1 + *nbr2;
         flag = 1;
         break;
       case '-':
         printf("\n");
-        calc(nbr, operator);
+        result = askForNumbers(nbr2, 2);
+        if (result == false) { return false; }
+
+        *finalNumber = *nbr1 - *nbr2;
         flag = 1;
         break;
       case '*':
         printf("\n");
-        calc(nbr, operator);
+        result = askForNumbers(nbr2, 2);
+        if (result == false) { return false; }
+
+        *finalNumber = *nbr1 * *nbr2;
         flag = 1;
         break;
       case '/':
         printf("\n");
-        calc(nbr, operator);
+        result = askForNumbers(nbr2, 2);
+        if (result == false) { return false; }
+
+        if (*nbr2 == 0) {
+          printf("\nDivision by zero is impossible.\n");
+          flag = 0;
+          break;
+        }
+
+        *finalNumber = *nbr1 / *nbr2;
         flag = 1;
         break;
       case '%':
         printf("\n");
-        calc(nbr, operator);
+        result = askForNumbers(nbr2, 2);
+        if (result == false) { return false; }
+
+        if (*nbr2 == 0) {
+          printf("\nModulo by zero is impossible.\n");
+          flag = 0;
+          break;
+        }
+
+        *finalNumber = *nbr1 % *nbr2;
         flag = 1;
         break;
       default:
-        printf("\nInvalid.\n", operator);
+        printf("\nInvalid.\n");
         int c;
         while ((c = getchar()) != '\n' && c != EOF) {}
         flag = 0;
         break;
     }
   } while(!flag);
+
+  return true;
 };
 
 int main() {
-  int nbr;
+  int nbr1;
+  int nbr2;
+  int finalNumber;
   int result;
 
-  result = askForNumbers(&nbr, 1);
+  result = askForNumbers(&nbr1, 1);
   if (result == false) { return 0; }
 
-  result = operation(nbr);
+  result = operation(&nbr1, &nbr2, &finalNumber);
   if (result == false) { return 0; }
+
+  printf("\nResult : %d\n", finalNumber);
+
+  return 0;
 }
