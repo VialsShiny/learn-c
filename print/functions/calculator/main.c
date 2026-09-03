@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-// #include <stddef.h>
 #include <stdbool.h>
 
 int askForNumbers(int *nbr, int step) {
@@ -26,9 +25,20 @@ int askForNumbers(int *nbr, int step) {
       flag = 0;
     }
   } while(!flag);
-}
+};
 
-int operation() {
+int calc(int nbr1, char operator) {
+  int nbr2;
+  int finalNbr;
+  int result;
+
+  result = askForNumbers(&nbr2, 2);
+  if (result == false) { return false; }
+
+  printf("%d %c %d = %d", nbr1, operator, nbr2, finalNbr);
+};
+
+int operation(int nbr) {
   int flag = 0;
   char operator;
   do {
@@ -37,22 +47,27 @@ int operation() {
     switch(operator) {
       case '+':
         printf("\n");
+        calc(nbr, operator);
         flag = 1;
         break;
       case '-':
         printf("\n");
+        calc(nbr, operator);
         flag = 1;
         break;
       case '*':
         printf("\n");
+        calc(nbr, operator);
         flag = 1;
         break;
       case '/':
         printf("\n");
+        calc(nbr, operator);
         flag = 1;
         break;
       case '%':
         printf("\n");
+        calc(nbr, operator);
         flag = 1;
         break;
       default:
@@ -72,8 +87,6 @@ int main() {
   result = askForNumbers(&nbr, 1);
   if (result == false) { return 0; }
 
-  result = operation();
+  result = operation(nbr);
   if (result == false) { return 0; }
-
-  printf("%d !", nbr);
 }
