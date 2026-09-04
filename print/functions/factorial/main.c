@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <stddef.h>
 
-#define MAX 99;
-#define MIN 3;
+#define MAX 10
+#define MIN 3
 
 void factorial(int n) {
   int result = n;
@@ -24,11 +24,15 @@ int main() {
 
     if (!c) {
       while ((c = getchar()) != '\n' && c != EOF) {}
-      printf("\n This not a number, retry...\n");
+      printf("\nThis not a number, retry...\n");
       flag = 0;
     } else {
-      printf("\n%d\n", number);
-      flag = 1;
+      if (number > MAX || number < MIN) {
+        printf("This not a number between 3 and 10\n");
+        flag = 0;
+      } else {
+        flag = 1;
+      }
     }
   } while(!flag);
 
