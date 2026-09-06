@@ -3,6 +3,9 @@
 #include <stddef.h>
 #include <math.h>
 
+#define MIN 1
+#define MAX 999
+
 int checkPrimeNumber(int nbr) {
   if (nbr <= 1)
     return 0;
@@ -32,7 +35,12 @@ int main() {
       while ((res = getchar()) != '\n' && res != EOF) {}
       res = 0;
     } else {
-      res = 1;
+      if (number > MAX || number < MIN) {
+        printf("This not a number between %d and %d\n", MIN, MAX);
+        res = 0;
+      } else {
+        res = 1;
+      }
     }
   } while(!res);
 
