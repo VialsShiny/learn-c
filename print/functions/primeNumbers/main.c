@@ -4,25 +4,45 @@
 #include <math.h>
 
 int checkPrimeNumber(int nbr) {
-  double squareRoot = sqrt(nbr);
-  int flag = 0;
-
   if (nbr <= 1)
-    flag = 0;
+    return 0;
 
-  for (size_t i = 2; i < squareRoot; i++) {
+  int flag = 1;
+  int squareRoot = sqrt(nbr);
+
+  for (int i = 2; i <= squareRoot; i++) {
     if (nbr % i == 0) {
       flag = 0;
       break;
     }
-    
-    flag = 1;
   }
 
   return flag;
 }
 
 int main() {
-  printf("Here i'm coding !");
+  int number;
+  int res = 0;
+
+  do {
+    printf("Choose a number between 1 - 999 : ");
+    res = scanf(" %d", &number);
+    if (!res) {
+      printf("\nThis not a number\n");
+      while ((res = getchar()) != '\n' && res != EOF) {}
+      res = 0;
+    } else {
+      res = 1;
+    }
+  } while(!res);
+
+  res = checkPrimeNumber(number);
+
+  if (res) {
+    printf("\n%d is a Prime Number !\n", number);
+  } else {
+    printf("\n%d isn't a Prime Number !\n", number);
+  }
+
   return 0;
 }
