@@ -28,14 +28,25 @@ void getNumber(int *n1, int *n2) {
   } while(!flag);
 }
 
+int power(int *base, int *exponent, int *result) {
+  *result = 1;
+
+  for (size_t i = 0; i < *exponent; i++) {
+    *result = *result * *base;
+  }
+
+  printf("\n%d\n", *result);
+}
+
 int main() {
-  // int *result;
+  int result;
   int n1 = false;
   int n2 = false;
 
   getNumber(&n1, &n2);
+  power(&n1, &n2, &result);
 
-  printf("\n %d \\ %d", n1, n2);
-
+  printf("\n%d ^ %d = %d", n1, n2, result);
+  
   return 0;
 }
