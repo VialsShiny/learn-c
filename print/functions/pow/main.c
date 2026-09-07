@@ -3,6 +3,9 @@
 #include <stddef.h>
 #include <stdbool.h>
 
+#define MAX 99
+#define MIN 0
+
 void getNumber(int *n1, int *n2) {
   int flag = 0;
 
@@ -20,6 +23,16 @@ void getNumber(int *n1, int *n2) {
       flag = 0;
       printf("\nThis is not a number !\n");
       while ((c = getchar()) != '\n' && c != EOF) {}
+    }
+
+    if (*n1 > MAX || *n1 < MIN) {
+      *n1 = false;
+      printf("\nBase number must be between 0 - 99 !\n");
+      while ((c = getchar()) != '\n' && c != EOF) {};
+    } else if (*n2 > MAX || *n2 < MIN) {
+      *n2 = false;
+      printf("\nExponent number must be between 0 - 99 !\n");
+      while ((c = getchar()) != '\n' && c != EOF) {};
     }
 
     if (*n1 != false && *n2 != false) {
