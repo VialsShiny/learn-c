@@ -8,7 +8,7 @@
 - [x] Pair / odd program
 - [x] Array sum
 - [x] Pointers
-- [ ] Functions
+- [x] Functions
 - [ ] Structs
 - [ ] Dynamic memory allocation
 - [ ] More advanced C exercises
