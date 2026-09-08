@@ -9,6 +9,3 @@
 - [x] Array sum
 - [x] Pointers
 - [x] Functions
-- [ ] Structs
-- [ ] Dynamic memory allocation
-- [ ] More advanced C exercises
