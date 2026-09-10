@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAX 50
 
@@ -9,6 +10,7 @@ int main() {
   int letters = 0;
   int spaces = 0;
   int digits = 0;
+  int vowels = 0;
   int sentence[MAX] = {0};
 
   c = getchar();
@@ -23,7 +25,11 @@ int main() {
       if (sentence[j] >= '0' && sentence[j] <= '9') {
         digits++;
       } else {
-        letters++;
+        if (strchr("aeiouyAEIOUY", sentence[j]) != NULL) {
+          vowels++;
+        } else {
+          letters++;
+        }
       }
     }
 
@@ -33,6 +39,7 @@ int main() {
   }
 
   printf("Letters : %d\n", letters);
+  printf("Vowels : %d\n", vowels);
   printf("Spaces : %d\n", spaces);
   printf("Digits : %d\n", digits);
 }
