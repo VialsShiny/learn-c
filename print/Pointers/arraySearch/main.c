@@ -5,7 +5,7 @@
 // Use : gcc -Wall -Wextra -g3 -Iutils .\print\pointers\arraySearch\main.c .\utils\printa.c -o .\print\pointers\arraySearch\output\main.exe
 
 const int DEFAULT[] = {10, 42, 7, 25, 99};
-const int length = sizeof(DEFAULT) / sizeof(DEFAULT[0]);
+const size_t length = sizeof(DEFAULT) / sizeof(DEFAULT[0]);
 
 int find(int *tab, int *flag, size_t length, int chosenNbr, int *index) {
   for (size_t i = 0; i < length; i++) {
