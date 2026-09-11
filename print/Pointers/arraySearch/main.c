@@ -7,6 +7,15 @@
 const int DEFAULT[] = {10, 42, 7, 25, 99};
 const int length = sizeof(DEFAULT) / sizeof(DEFAULT[0]);
 
+int find(int *tab, int *flag, size_t length, int chosenNbr, int *index) {
+  for (size_t i = 0; i < length; i++) {
+    if (tab[i] == chosenNbr) {
+      *flag = 1;
+      *index = i;
+    }      
+  }
+}
+
 int main() {
   int c;
   int flag = 0;
@@ -25,13 +34,7 @@ int main() {
       printf("\nThis is not a number, retry...\n");
       flag = 0;
     } else {
-      for (size_t i = 0; i < length; i++) {
-        if (DEFAULT[i] == chosenNbr) {
-          flag = 1;
-          index = i;
-        }      
-      }
-
+      find(DEFAULT, &flag, length, chosenNbr, &index);
       if (!flag) {
         printf("\nYou didn't choose a number in the Object, retry...\n");
       }
